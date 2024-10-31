@@ -1,0 +1,179 @@
+// 動畫區
+@keyframes right {
+
+    // 補間動畫0%~50%~100%
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes down {
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes left {
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+@keyframes up {
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+@keyframes text {
+    100% {
+        width: 143px;
+    }
+}
+@keyframes shadow {
+    0% {
+        box-shadow: 0 0 300px 50px #8338EC;
+    }
+    12% {
+        box-shadow: 0 0 0px 0px transparent;
+    }
+    25% {
+        box-shadow: 0 0 300px 50px #FF006E;
+    }
+    37% {
+        box-shadow: 0 0 0px 0px transparent;
+    }
+    50% {
+        box-shadow: 0 0 300px 50px #FB5607;
+    }
+    62% {
+        box-shadow: 0 0 0px 0px transparent;
+    }
+    75% {
+        box-shadow: 0 0 300px 50px #FFBE0B;
+    }
+    87% {
+        box-shadow: 0 0 0px 0px transparent;
+    }
+    100% {
+        box-shadow: 0 0 300px 50px #8338EC;
+    }
+}
+
+// ===============================================
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    background-color: #14213d;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .box {
+        // background-color: #eee;
+        width: 300px;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+
+        .line {
+            position: absolute;
+        }
+
+        .line-1 {
+            background: linear-gradient(to right, transparent, #8338EC);
+            width: 100%;
+            height: 10px;
+            top: 0;
+            left: -100%;
+            // animation: name duration timing-function delay iteration-count direction fill-mode;
+            animation: right 2s linear infinite;
+        }
+
+        .line-2 {
+            background: linear-gradient(to bottom, transparent, #FF006E);
+            width: 10px;
+            height: 100%;
+            top: -100%;
+            right: 0;
+            animation: down 2s linear 0.5s infinite;
+        }
+
+        .line-3 {
+            background: linear-gradient(to left, transparent, #FB5607);
+            width: 100%;
+            height: 10px;
+            bottom: 0;
+            right: -100%;
+            animation: left 2s linear 1s infinite;
+        }
+
+        .line-4 {
+            background: linear-gradient(to top, transparent, #FFBE0B);
+            width: 10px;
+            height: 100%;
+            bottom: -100%;
+            left: 0;
+            animation: up 2s linear 1.5s infinite;
+        }
+
+        h1 {
+            // h有預設的外框，視情況要初始化
+            margin: 0;
+            // h視作div，若不設定寬度的話就會佔一列
+            width: 0;
+            height: auto;
+            color: #3A86FF;
+            border-right: 2px solid #3A86FF;
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            animation: text 2s linear infinite alternate;
+        }
+        &:hover {
+            box-shadow: 0 0 300px 150px #3A86FF;
+            animation: shadow 5s linear infinite alternate;
+            .line {
+                position: absolute;
+            }
+    
+            .line-1 {
+                background: linear-gradient(to right, transparent, #3A86FF);
+            }
+    
+            .line-2 {
+                background: linear-gradient(to bottom, transparent, #3A86FF);
+            }
+    
+            .line-3 {
+                background: linear-gradient(to left, transparent, #3A86FF);
+            }
+    
+            .line-4 {
+                background: linear-gradient(to top, transparent, #3A86FF);
+            }
+            h1 {
+                color: #3A86FF;
+                border-right: 2px solid #3A86FF;
+            }
+        }
+    }
+
+
+}
